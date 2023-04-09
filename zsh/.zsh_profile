@@ -4,3 +4,6 @@ VIM="nvim"
 
 alias vi=nvim
 alias vim=nvim
+alias ll="ls -laF"
+
+bindkey -s ^f "tmux-sessionizer\n"
