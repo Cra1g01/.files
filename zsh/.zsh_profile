@@ -8,10 +8,23 @@ alias ll="ls -laF"
 
 bindkey -s ^f "tmux-sessionizer\n"
 
+export STOW_FOLDERS="bin,nvim,tmux,zsh"
+export GIT_EDITOR=$VIM
+export DOTFILES=$HOME/.dotfiles
+
+addToPath() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$PATH:$1
+    fi
+}
+
+addToPathFront() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$1:$PATH
+    fi
+}
+
 addToPathFront $HOME/.local/.npm-global/bin
 addToPathFront $HOME/.local/scripts
 addToPathFront $HOME/.local/bin
-
-export GIT_EDITOR=$VIM
-export DOTFILES=$HOME/.dotfiles
 
